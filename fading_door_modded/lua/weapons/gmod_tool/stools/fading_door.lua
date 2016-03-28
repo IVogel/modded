@@ -47,9 +47,9 @@ if CLIENT then
 	function TOOL:BuildCPanel()
 		self:AddControl( "Header", { Text = "#tool.fading_door.name", Description = "#tool.fading_door.desc" } )
 		self:AddControl( "CheckBox", { Label = "Включиться скрытым", Command = "fading_door_reversed" } )
-		if table.HasValue({"premium", "volonter", "prosecutor", "minister", "governor", "admin", "superadmin"}, LocalPlayer():GetUserGroup()) then
+		--if table.HasValue({"premium", "volonter", "prosecutor", "minister", "governor", "admin", "superadmin"}, LocalPlayer():GetUserGroup()) then
 			self:AddControl( "CheckBox", { Label = "Переключение", Command = "fading_door_toggle" } )
-		end
+		--end
 		self:AddControl( "CheckBox", { Label = "Без эффекта", Command = "fading_door_noeffect" } )
 		self:AddControl( "CheckBox", { Label = "#tool.fading_door.useundo", Command = "fading_door_useundo" } )
 		self:AddControl( "Numpad", { Label = "Кнопка активации", ButtonSize = "22", Command = "fading_door_key" } )
