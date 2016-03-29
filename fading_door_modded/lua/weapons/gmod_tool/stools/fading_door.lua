@@ -20,7 +20,7 @@ TOOL.ClientConVar["noeffect"] = "0"
 TOOL.ClientConVar["useundo"] = "1"
 
 -- create convar fading_door_nokeyboard (defualt 0)
-local noKeyboard = CreateConVar("fading_door_nokeyboard", "0", FCVAR_ARCHIVE, "Установите 1 для запрета использования фэйд дора с клавы")
+local noKeyboard = CreateConVar("fading_door_nokeyboard", "0", FCVAR_ARCHIVE, "Set to 1 to disable using fading doors with the keyboard")
 
 local function checkTrace(tr)
 	-- edgy, yes, but easy to read
@@ -37,21 +37,19 @@ end
 
 if CLIENT then
 	-- handle languages
-	language.Add( "tool.fading_door.name", "Скрывающаяся дверь" )
-	language.Add( "tool.fading_door.desc", "делает объекты проходимыми" )
-	language.Add( "tool.fading_door.0", "Определите кнопку и нажмите на объект, чтобы сделать его проходимым" )
-	language.Add( "Undone_fading_door", "Отмена фэйдинг дора" )
+	language.Add( "tool.fading_door.name", "Fading Door" )
+	language.Add( "tool.fading_door.desc", "Makes an object fade away when activated." )
+	language.Add( "tool.fading_door.0", "Click on an object to make it a fading door." )
+	language.Add( "Undone_fading_door", "Undone Fading Door" )
 	language.Add( "tool.fading_door.useundo", "Use undo system" )
 
 	-- handle tool panel
 	function TOOL:BuildCPanel()
 		self:AddControl( "Header", { Text = "#tool.fading_door.name", Description = "#tool.fading_door.desc" } )
-		self:AddControl( "CheckBox", { Label = "Включиться скрытым", Command = "fading_door_reversed" } )
-		--if table.HasValue({"premium", "volonter", "prosecutor", "minister", "governor", "admin", "superadmin"}, LocalPlayer():GetUserGroup()) then
-			self:AddControl( "CheckBox", { Label = "Переключение", Command = "fading_door_toggle" } )
-		--end
-		self:AddControl( "CheckBox", { Label = "Без эффекта", Command = "fading_door_noeffect" } )
-		self:AddControl( "CheckBox", { Label = "#tool.fading_door.useundo", Command = "fading_door_useundo" } )
+		self:AddControl( "CheckBox", { Label = "Start Faded", Command = "fading_door_reversed" } )
+		self:AddControl( "CheckBox", { Label = "Toggle", Command = "fading_door_toggle" } )
+		self:AddControl( "CheckBox", { Label = "No Effect", Command = "fading_door_noeffect" } )
+		self:AddControl( "Numpad", { Label = "Fade", ButtonSize = "22", Command = "fading_door_key" } )
 		self:AddControl( "Numpad", { Label = "Кнопка активации", ButtonSize = "22", Command = "fading_door_key" } )
 	end
 
