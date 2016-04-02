@@ -38,10 +38,9 @@ end
 if CLIENT then
 	-- handle languages
 	language.Add( "tool.fading_door.name", "Fading Door" )
-	language.Add( "tool.fading_door.desc", "Makes an object fade away when activated." )
+	language.Add( "tool.fading_door.desc", "Makes an object fade away when activated.\nPress R if you want remove FD." )
 	language.Add( "tool.fading_door.0", "Click on an object to make it a fading door." )
 	language.Add( "Undone_fading_door", "Undone Fading Door" )
-	language.Add( "tool.fading_door.useundo", "Use undo system" )
 
 	-- handle tool panel
 	function TOOL:BuildCPanel()
