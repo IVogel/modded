@@ -49,8 +49,8 @@ if CLIENT then
 		self:AddControl( "CheckBox", { Label = "Start Faded", Command = "fading_door_reversed" } )
 		self:AddControl( "CheckBox", { Label = "Toggle", Command = "fading_door_toggle" } )
 		self:AddControl( "CheckBox", { Label = "No Effect", Command = "fading_door_noeffect" } )
+		self:AddControl( "CheckBox", { Label = "Use undo", Command = "fading_door_useundo" } )
 		self:AddControl( "Numpad", { Label = "Fade", ButtonSize = "22", Command = "fading_door_key" } )
-		self:AddControl( "Numpad", { Label = "Кнопка активации", ButtonSize = "22", Command = "fading_door_key" } )
 	end
 
 	-- leftclick trace function
